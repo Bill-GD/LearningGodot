@@ -653,7 +653,7 @@ layer_4/tile_data = PackedInt32Array(589833, 5, 0, 393240, 5, 0, 1245213, 5, 0, 
 color = Color(0.560784, 0.560784, 0.560784, 1)
 
 [node name="ShortCandle" parent="." instance=ExtResource("14_5uhd4")]
-position = Vector2(162, 120)
+position = Vector2(163, 126)
 
 [node name="ShortCandle2" parent="." instance=ExtResource("14_5uhd4")]
 position = Vector2(429, 286)
