@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://e3sr1kamfa72"]
+
+[ext_resource type="Script" path="res://MapObjects/animated_object.gd" id="1_i6tvd"]
+[ext_resource type="Texture2D" uid="uid://dkxnhubtvgrvh" path="res://Assets/Sprites/side_torch.png" id="2_vh74t"]
+[ext_resource type="Texture2D" uid="uid://bt4bi6uugwc35" path="res://Assets/Sprites/2d_point_light.png" id="3_0ckm5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8isbc"]
+atlas = ExtResource("2_vh74t")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfm1y"]
+atlas = ExtResource("2_vh74t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mf7m"]
+atlas = ExtResource("2_vh74t")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny50x"]
+atlas = ExtResource("2_vh74t")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wv7xi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8isbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mf7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny50x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="SideTorch" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_i6tvd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_wv7xi")
+frame_progress = 0.02236
+offset = Vector2(0, -4)
+
+[node name="Shadow" type="PointLight2D" parent="."]
+show_behind_parent = true
+position = Vector2(-5, 0)
+scale = Vector2(0.8, 0.8)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = ExtResource("3_0ckm5")
+offset = Vector2(0, -9)
+texture_scale = 0.25
+
+[node name="Light" type="PointLight2D" parent="."]
+show_behind_parent = true
+position = Vector2(-5, -1.13687e-13)
+scale = Vector2(0.8, 0.8)
+range_item_cull_mask = 2
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+shadow_item_cull_mask = 4
+texture = ExtResource("3_0ckm5")
+offset = Vector2(0, -9)
+texture_scale = 0.25

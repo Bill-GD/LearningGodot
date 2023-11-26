@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpqhw37ku0sx1"]
+
+[ext_resource type="Script" path="res://player_test.gd" id="1_qsjk1"]
+[ext_resource type="Texture2D" uid="uid://comk87bfgtn36" path="res://Assets/Sprites/priest2.png" id="2_7q1el"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yttp5"]
+atlas = ExtResource("2_7q1el")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05jpo"]
+atlas = ExtResource("2_7q1el")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyll3"]
+atlas = ExtResource("2_7q1el")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn1f3"]
+atlas = ExtResource("2_7q1el")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxihm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yttp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05jpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyll3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn1f3")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nl7t7"]
+radius = 1.0
+height = 10.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_we8yx"]
+polygon = PackedVector2Array(-4, -1, -4, 1, 4, 1, 4, -1)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+light_mask = 2
+y_sort_enabled = true
+collision_mask = 3
+script = ExtResource("1_qsjk1")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_yxihm")
+animation = &"move"
+offset = Vector2(0, -6)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+offset = Vector2(0, -6)
+zoom = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_nl7t7")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_we8yx")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhuln3wvw65gg"]
+
+[ext_resource type="Texture2D" uid="uid://1kdix3qonca0" path="res://Assets/Sprites/chests.png" id="1_iose7"]
+[ext_resource type="Script" path="res://MapObjects/big_chest.gd" id="1_shcod"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jpt7v"]
+polygon = PackedVector2Array(-5, 1, -5, -1, 5, -1, 5, 1)
+
+[node name="BigChest" type="StaticBody2D"]
+script = ExtResource("1_shcod")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+texture = ExtResource("1_iose7")
+offset = Vector2(0, -5)
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-6, 2, 6, 2, 6, 0, -6, 0)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jpt7v")

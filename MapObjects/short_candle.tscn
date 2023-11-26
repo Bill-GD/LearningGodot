@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7740ljg0jls0"]
+
+[ext_resource type="Script" path="res://MapObjects/animated_object.gd" id="1_38chk"]
+[ext_resource type="Texture2D" uid="uid://bw8bgoosnfbpc" path="res://Assets/Sprites/short_candle.png" id="2_kpwci"]
+[ext_resource type="Texture2D" uid="uid://bt4bi6uugwc35" path="res://Assets/Sprites/2d_point_light.png" id="3_8cnvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbkja"]
+atlas = ExtResource("2_kpwci")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psv0c"]
+atlas = ExtResource("2_kpwci")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jela4"]
+atlas = ExtResource("2_kpwci")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy2g7"]
+atlas = ExtResource("2_kpwci")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltt37"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbkja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psv0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jela4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy2g7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="ShortCandle" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_38chk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+sprite_frames = SubResource("SpriteFrames_ltt37")
+frame_progress = 0.318805
+offset = Vector2(0, -7)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+rotation = -1.57079
+polygon = PackedVector2Array(-1.00003, -3.99999, -0.999969, 5.00001, 1.00003, 4.99999, 0.999975, -4.00001)
+
+[node name="Shadow" type="PointLight2D" parent="."]
+show_behind_parent = true
+scale = Vector2(0.8, 0.8)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = ExtResource("3_8cnvx")
+offset = Vector2(0, -7)
+texture_scale = 0.25
+
+[node name="Light" type="PointLight2D" parent="."]
+show_behind_parent = true
+scale = Vector2(0.8, 0.8)
+range_item_cull_mask = 2
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+shadow_item_cull_mask = 4
+texture = ExtResource("3_8cnvx")
+offset = Vector2(0, -7)
+texture_scale = 0.25
