@@ -62,7 +62,7 @@ shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("3_0bl3u")
 offset = Vector2(0, -7)
-texture_scale = 0.35
+texture_scale = 0.5
 
 [node name="Light" type="PointLight2D" parent="."]
 show_behind_parent = true
@@ -73,4 +73,4 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 4
 texture = ExtResource("3_0bl3u")
 offset = Vector2(0, -7)
-texture_scale = 0.35
+texture_scale = 0.5

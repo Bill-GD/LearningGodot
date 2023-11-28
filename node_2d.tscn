@@ -1,14 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://hxuf3ed1rrt6"]
+[gd_scene load_steps=9 format=3 uid="uid://hxuf3ed1rrt6"]
 
 [ext_resource type="PackedScene" uid="uid://bheawvgl868v6" path="res://TileMaps/map.tscn" id="1_wbbbl"]
 [ext_resource type="PackedScene" uid="uid://cpqhw37ku0sx1" path="res://player_test.tscn" id="2_tgc14"]
+[ext_resource type="PackedScene" uid="uid://c7740ljg0jls0" path="res://MapObjects/short_candle.tscn" id="3_o0rap"]
+[ext_resource type="PackedScene" uid="uid://doqbwqq7m2e1r" path="res://MapObjects/tall_candle.tscn" id="4_i3orh"]
+[ext_resource type="PackedScene" uid="uid://dlsy6hvh4a3dd" path="res://MapObjects/torch.tscn" id="5_510bu"]
+[ext_resource type="PackedScene" uid="uid://e3sr1kamfa72" path="res://MapObjects/side_torch.tscn" id="6_7k413"]
+[ext_resource type="PackedScene" uid="uid://bixv06p00pg52" path="res://MapObjects/small_chest.tscn" id="7_0hvgj"]
+[ext_resource type="PackedScene" uid="uid://dhuln3wvw65gg" path="res://MapObjects/big_chest.tscn" id="8_8danc"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Map" parent="." instance=ExtResource("1_wbbbl")]
-position = Vector2(7, -4)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.560784, 0.560784, 0.560784, 1)
+
+[node name="ShortCandle" parent="." instance=ExtResource("3_o0rap")]
+position = Vector2(164, 100)
+
+[node name="TallCandle" parent="." instance=ExtResource("4_i3orh")]
+position = Vector2(105, 151)
+
+[node name="TallCandle2" parent="." instance=ExtResource("4_i3orh")]
+position = Vector2(272, 77)
+
+[node name="Torch" parent="." instance=ExtResource("5_510bu")]
+position = Vector2(216, 12)
+
+[node name="SideTorch" parent="." instance=ExtResource("6_7k413")]
+position = Vector2(24, 146)
+
+[node name="SmallChest" parent="." instance=ExtResource("7_0hvgj")]
+position = Vector2(146, 92)
+
+[node name="BigChest" parent="." instance=ExtResource("8_8danc")]
+position = Vector2(128, 141)
 
 [node name="Player" parent="." instance=ExtResource("2_tgc14")]
 y_sort_enabled = false
-position = Vector2(130, 128)
+position = Vector2(92, 130)

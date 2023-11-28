@@ -46,9 +46,9 @@ script = ExtResource("1_2mj1h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
-position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_wv7xi")
 frame_progress = 0.764336
+offset = Vector2(0, -4)
 
 [node name="Shadow" type="PointLight2D" parent="."]
 show_behind_parent = true
@@ -58,7 +58,7 @@ shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("3_scryy")
 offset = Vector2(0, -4)
-texture_scale = 0.25
+texture_scale = 0.4
 
 [node name="Light" type="PointLight2D" parent="."]
 show_behind_parent = true
@@ -69,4 +69,4 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 4
 texture = ExtResource("3_scryy")
 offset = Vector2(0, -4)
-texture_scale = 0.25
+texture_scale = 0.4

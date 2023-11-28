@@ -1,24 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhuln3wvw65gg"]
+[gd_scene load_steps=6 format=3 uid="uid://dhuln3wvw65gg"]
 
 [ext_resource type="Texture2D" uid="uid://1kdix3qonca0" path="res://Assets/Sprites/chests.png" id="1_iose7"]
 [ext_resource type="Script" path="res://MapObjects/big_chest.gd" id="1_shcod"]
+[ext_resource type="Texture2D" uid="uid://sx7fldhbx3fp" path="res://Assets/Sprites/chest_glow.png" id="3_ivvwy"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jpt7v"]
-polygon = PackedVector2Array(-5, 1, -5, -1, 5, -1, 5, 1)
+polygon = PackedVector2Array(-6, 2, -6, -2, 6, -2, 6, 2)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05ary"]
+radius = 6.0
+height = 20.0
 
 [node name="BigChest" type="StaticBody2D"]
 script = ExtResource("1_shcod")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ChestSprite" type="Sprite2D" parent="."]
 light_mask = 2
 texture = ExtResource("1_iose7")
-offset = Vector2(0, -5)
+offset = Vector2(0, -4)
 region_enabled = true
 region_rect = Rect2(32, 0, 16, 16)
 
+[node name="ChestGlow" type="Sprite2D" parent="."]
+light_mask = 2
+position = Vector2(0, 1)
+texture = ExtResource("3_ivvwy")
+offset = Vector2(0, -5)
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -1)
-polygon = PackedVector2Array(-6, 2, 6, 2, 6, 0, -6, 0)
+polygon = PackedVector2Array(-6, 3, 6, 3, 6, -1, -6, -1)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jpt7v")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_05ary")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
