@@ -1,7 +1,8 @@
-# The Dungeon
-Test game for features not in The Treasure
+# Learning Godot
+Project for learning more about Godot 2D (not 3D yet)
 
-- Assets: [2D Dungeon Pack](https://pixel-poem.itch.io/dungeon-assetpuck)
+- Assets:
+  - [2D Dungeon Pack](https://pixel-poem.itch.io/dungeon-assetpuck)
 
 - Planned Features (to test & might not be implemented):
   - ✅ Y-Sorting: Top-down 2D, 0° < camera angle < 90°
@@ -13,6 +14,6 @@ Test game for features not in The Treasure
     - TileMap: use NavigationLayer and NavigationAgent for entities
     - Bodies: __manually__ draw NavigationRegion around objects (4.2 has baking)
     - TIleMap & Bodies: impossible, NavigationRegion and TileMap NavigationLayer don't work together
-  - ▢ Melee attacks: Swing, Collision, Animation...
+  - ▢ Better Animation: maybe AnimationPlayer and AnimationTree
   - ▢ Object (non-TileMap) interactions: open/close chests
   - ▢ TileMap interactions: open/close doors
