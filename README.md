@@ -15,6 +15,12 @@ Project for learning more about Godot 2D (not 3D yet)
     - TileMap: use NavigationLayer and NavigationAgent for entities
     - Bodies: __manually__ draw NavigationRegion around objects (4.2 has baking)
     - TIleMap & Bodies: impossible, NavigationRegion and TileMap NavigationLayer don't work together
-  - ▢ Better Animation: maybe AnimationPlayer and AnimationTree
+  - ▢ Better Animation:
+    - A bit complicated to get into but can be straightforward if you know the general process
+    - Since any frame is a collection of node state/data changes so it can do a lot of things
   - ▢ Object (non-TileMap) interactions: open/close chests
+    - Use Area2D around the object
+    - Maybe add a bool/state -> handle open/close event?
   - ▢ TileMap interactions: open/close doors
+
+- If this ever becomes a game, I'd probably make black & white sprites (simple & I can't really draw)
