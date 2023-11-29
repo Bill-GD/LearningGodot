@@ -16,11 +16,15 @@ func _process(_delta):
 		direction = ($NavigationAgent2D.get_next_path_position() - global_position).normalized()
 
 	if direction != Vector2.ZERO:
-		if direction.x < 0: $Sprite2D.flip_h = true
-		elif direction.x > 0: $Sprite2D.flip_h = false
-		$Sprite2D.play('move')
+		if direction.x < 0:
+			$Sprite2D.flip_h = true
+			# $Sprite2D/LightOccluder2D.scale = Vector2(-1, 1)
+		elif direction.x > 0:
+			$Sprite2D.flip_h = false
+			# $Sprite2D/LightOccluder2D.scale = Vector2(1, 1)
+		$AnimationPlayer.play('move')
 	else:
-		$Sprite2D.play('idle')
+		$AnimationPlayer.play('idle')
 
 	velocity = 100 * direction
 	move_and_slide()

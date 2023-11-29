@@ -40,4 +40,4 @@ position = Vector2(128, 141)
 
 [node name="Player" parent="." instance=ExtResource("2_tgc14")]
 y_sort_enabled = false
-position = Vector2(92, 130)
+position = Vector2(114, 121)

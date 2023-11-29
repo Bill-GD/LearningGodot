@@ -3,6 +3,7 @@ Project for learning more about Godot 2D (not 3D yet)
 
 - Assets:
   - [2D Dungeon Pack](https://pixel-poem.itch.io/dungeon-assetpuck)
+  - [Pixel Crawler](https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack)
 
 - Planned Features (to test & might not be implemented):
   - ✅ Y-Sorting: Top-down 2D, 0° < camera angle < 90°
